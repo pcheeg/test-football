@@ -1,1 +1,1 @@
-v6: vertical movement continuously changes zoom. Horizontal movement uses current visible range.
+v8 adds a 40px dead zone before precision starts, with continuous interpolation through target speed points.

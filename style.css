@@ -6,4 +6,4 @@ button{padding:10px 14px;border:0;border-radius:10px}
 #value{font-size:64px;font-weight:700;margin:18px}
 #track{position:relative;height:10px;background:#ddd;border-radius:999px;margin:50px 8px;touch-action:none}
 #fill{position:absolute;height:100%;background:#ec4d98;border-radius:999px}
-#thumb{position:absolute;width:28px;height:28px;border-radius:50%;background:#ec4d98;top:50%;transform:translate(-50%,-50%);box-shadow:0 4px 10px rgba(0,0,0,.2)}
+#thumb{position:absolute;width:28px;height:28px;border-radius:50%;background:#ec4d98;top:50%;transform:translate(-50%,-50%)}

@@ -1,1 +1,1 @@
-Adaptive speed version.
+v6: vertical movement continuously changes zoom. Horizontal movement uses current visible range.

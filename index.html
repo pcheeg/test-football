@@ -1,14 +1,13 @@
-<!DOCTYPE html>
+<!doctype html>
 <html><head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Precision Slider Prototype</title>
 <link rel="stylesheet" href="style.css">
+<title>Slider Prototype</title>
 </head>
 <body>
 <div class="card">
-<h2>Football Stat Slider</h2>
-
+<h1>Football Stat Slider</h1>
 <div class="buttons">
 <button data-max="260">Goals</button>
 <button data-max="653">Appearances</button>
@@ -17,14 +16,16 @@
 
 <div id="value">0</div>
 
-<div id="sliderArea">
-<canvas id="slider" width="340" height="180"></canvas>
+<div id="sliderWrap">
+<canvas id="slider"></canvas>
 </div>
 
-<p id="range">0–653</p>
+<div id="range">0–653</div>
 
+<div class="buttons">
 <button id="submit">Submit</button>
 <button id="new">New Target</button>
+</div>
 
 <div id="result"></div>
 </div>

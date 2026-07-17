@@ -1,5 +1,9 @@
-body{margin:0;background:#f5f5f5;font-family:-apple-system,BlinkMacSystemFont,sans-serif;display:flex;justify-content:center;padding:30px}
-.card{background:#fff;border-radius:18px;padding:20px;max-width:420px;width:100%;box-shadow:0 8px 24px rgba(0,0,0,.12);text-align:center}
-#value{font-size:60px;font-weight:700;margin:12px 0}
-canvas{width:100%;touch-action:none}
-button{padding:10px 16px;margin:5px;border:none;border-radius:10px}
+
+body{margin:0;background:#f5f5f5;font-family:-apple-system,sans-serif;display:flex;justify-content:center;padding:20px}
+.card{background:#fff;border-radius:24px;padding:20px;width:min(430px,92vw);box-shadow:0 8px 24px rgba(0,0,0,.12);text-align:center}
+.buttons{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin:12px 0}
+button{padding:10px 16px;border:none;border-radius:12px;background:#e9e9ee}
+#value{font-size:60px;font-weight:700;margin:10px 0}
+#sliderWrap{width:100%;height:170px}
+canvas{display:block;width:100%;height:170px;touch-action:none}
+#range{font-size:24px;margin-top:8px}

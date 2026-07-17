@@ -1,0 +1,36 @@
+body{
+font-family:system-ui,-apple-system,sans-serif;
+background:#f7f7f7;
+display:flex;
+justify-content:center;
+align-items:center;
+min-height:100vh;
+margin:0;
+}
+.card{
+background:white;
+padding:24px;
+border-radius:20px;
+width:min(92vw,420px);
+box-shadow:0 10px 30px rgba(0,0,0,.1);
+text-align:center;
+}
+.value{
+font-size:56px;
+font-weight:bold;
+margin:20px 0;
+}
+input[type=range]{
+width:100%;
+}
+button{
+padding:12px 18px;
+margin:6px;
+border:none;
+border-radius:12px;
+cursor:pointer;
+}
+#result{
+margin-top:20px;
+font-weight:bold;
+}

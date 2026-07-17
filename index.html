@@ -1,33 +1,17 @@
 <!doctype html>
-<html><head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<link rel="stylesheet" href="style.css">
-<title>Slider Prototype</title>
-</head>
-<body>
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="style.css"></head><body>
 <div class="card">
 <h1>Football Stat Slider</h1>
-<div class="buttons">
+<div class="row">
 <button data-max="260">Goals</button>
 <button data-max="653">Appearances</button>
 <button data-max="1000">Stress Test</button>
 </div>
-
 <div id="value">0</div>
-
-<div id="sliderWrap">
-<canvas id="slider"></canvas>
-</div>
-
+<div id="track"><div id="fill"></div><div id="thumb"></div></div>
 <div id="range">0–653</div>
-
-<div class="buttons">
-<button id="submit">Submit</button>
-<button id="new">New Target</button>
-</div>
-
+<div class="row"><button id="submit">Submit</button><button id="new">New Target</button></div>
 <div id="result"></div>
 </div>
-<script src="script.js"></script>
-</body></html>
+<script src="script.js"></script></body></html>

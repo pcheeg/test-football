@@ -1,1 +1,1 @@
-Responsive fixed canvas version.
+v3 uses HTML elements instead of canvas to avoid Safari canvas rendering issues.

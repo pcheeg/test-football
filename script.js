@@ -1,50 +1,60 @@
 
-const track=document.getElementById('track'),thumb=document.getElementById('thumb'),
-fill=document.getElementById('fill'),valueEl=document.getElementById('value'),info=document.getElementById('info');
-let max=1000,value=0;
-let drag=false,startY=0,lastX=0;
+const track=document.getElementById("track");
+const thumb=document.getElementById("thumb");
+const fill=document.getElementById("fill");
+const valueEl=document.getElementById("value");
 
-function zoomFactor(dy){
-  // dy: upward distance
-  return Math.max(0.01,Math.pow(0.985,dy)); // continuous zoom
+let max=260;
+let value=0;
+let dragging=false,lastX=0,trackY=0;
+
+function draw(){
+ const w=track.clientWidth;
+ const x=(value/max)*w;
+ thumb.style.left=x+"px";
+ fill.style.width=x+"px";
+ valueEl.textContent=Math.round(value);
 }
-function render(lift=0){
-  const w=track.clientWidth;
-  const x=(value/max)*w;
-  thumb.style.left=x+"px";
-  thumb.style.top=`calc(50% - ${Math.min(lift,40)}px)`;
-  fill.style.width=x+"px";
-  valueEl.textContent=Math.round(value);
-  const z=zoomFactor(Math.max(0,startY-(window._cy||startY)));
-  const visible=Math.max(1,max*z);
-  info.textContent=`Visible range ≈ ${visible.toFixed(0)} values`;
-}
-render();
+draw();
 
 track.onpointerdown=e=>{
- drag=true;startY=e.clientY;lastX=e.clientX;window._cy=e.clientY;
+ dragging=true;
+ lastX=e.clientX;
+ trackY=track.getBoundingClientRect().top+track.clientHeight/2;
  track.setPointerCapture(e.pointerId);
 };
 
 track.onpointermove=e=>{
- if(!drag)return;
- window._cy=e.clientY;
- const dx=e.clientX-lastX; lastX=e.clientX;
- const dy=Math.max(0,startY-e.clientY);
+ if(!dragging) return;
 
- const visible=max*zoomFactor(dy); // how much the track represents
- const unitsPerPixel=visible/track.clientWidth;
+ const dx=e.clientX-lastX;
+ lastX=e.clientX;
 
- value+=dx*unitsPerPixel;
+ // distance BELOW the track only
+ const down=Math.max(0,e.clientY-trackY);
+
+ // continuous precision curve:
+ // on line = 100%
+ // lower = progressively slower
+ const precision=1/(1+down/35);
+
+ // full-width swipe at track level traverses full range
+ const unitsPerPixel=(max/track.clientWidth);
+
+ value+=dx*unitsPerPixel*precision;
+
  if(value<0)value=0;
  if(value>max)value=max;
- render(dy);
+
+ draw();
 };
 
-track.onpointerup=()=>{drag=false;render(0);};
+track.onpointerup=()=>dragging=false;
 
-document.querySelectorAll("[data-max]").forEach(b=>b.onclick=()=>{
- max=+b.dataset.max;
- value=0;
- render();
+document.querySelectorAll("[data-max]").forEach(b=>{
+ b.onclick=()=>{
+   max=+b.dataset.max;
+   value=0;
+   draw();
+ };
 });

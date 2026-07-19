@@ -1,16 +1,92 @@
-<!doctype html><html><head>
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<link rel="stylesheet" href="style.css"></head><body>
-<div class="card">
-<h2>2D Scrubber v9</h2>
-<div class="row">
-<button data-max="260">Goals</button>
-<button data-max="653">Apps</button>
-<button data-max="1000">Stress</button>
-</div>
-<div id="value">0</div>
-<div id="track"><div id="fill"></div><div id="thumb"></div></div>
-<p>Large dead zone before precision begins.</p>
-</div>
-<script src="script.js"></script>
-</body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+  <meta name="theme-color" content="#08111f">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Goal Guess">
+  <meta name="description" content="Guess the Premier League goal totals of five footballers.">
+
+  <title>Goal Guess</title>
+
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app">
+    <header class="topbar">
+      <div class="brand">Goal Guess</div>
+      <div id="topStatus" class="status-pill">TEST</div>
+    </header>
+
+    <section id="startScreen" class="screen start-screen active">
+      <div class="ball-logo" aria-hidden="true">⚽</div>
+      <h1>Guess the goals.</h1>
+      <p>Five Premier League players. Drag the football from 0 to 260 and get as close as possible.</p>
+      <button id="startButton" class="primary-button" type="button">Play Test</button>
+    </section>
+
+    <section id="gameScreen" class="screen game-screen">
+      <div class="player-card">
+        <h1 id="playerName" class="player-name"></h1>
+        <div class="player-meta">
+          <span id="playerFlag" class="flag" aria-hidden="true"></span>
+          <span id="playerPosition"></span>
+        </div>
+      </div>
+
+      <div class="value-wrap">
+        <div id="value" aria-live="polite">0</div>
+      </div>
+
+      <div id="sliderZone" class="slider-zone">
+        <div class="scale-labels" aria-hidden="true">
+          <span>0</span>
+          <span>260</span>
+        </div>
+
+        <div
+          id="track"
+          role="slider"
+          aria-label="Premier League goals guess"
+          aria-valuemin="0"
+          aria-valuemax="260"
+          aria-valuenow="0"
+          tabindex="0"
+        >
+          <div id="fill"></div>
+          <div id="guessLine" class="marker guess-marker"></div>
+          <div id="answerLine" class="marker answer-marker"></div>
+          <div id="thumb" aria-hidden="true">⚽</div>
+        </div>
+
+        <p id="precisionCopy" class="precision-copy">
+          <strong>Drag sideways</strong> to guess. Move your finger lower for finer control.
+        </p>
+      </div>
+
+      <div id="feedback" class="feedback" aria-live="polite"></div>
+
+      <div class="actions">
+        <button id="guessButton" class="primary-button" type="button">Lock In</button>
+        <button id="nextButton" class="primary-button hidden" type="button">Next Player</button>
+      </div>
+    </section>
+
+    <section id="resultsScreen" class="screen results-screen">
+      <div class="ball-logo" aria-hidden="true">⚽</div>
+      <h1>Full time.</h1>
+      <div id="finalScore" class="final-score">0<span>out of 1000</span></div>
+      <div id="roundBreakdown" class="round-breakdown"></div>
+      <button id="shareButton" class="primary-button" type="button">Share Score</button>
+      <button id="playAgainButton" class="secondary-button" type="button">Play Again</button>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

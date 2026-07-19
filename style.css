@@ -1,9 +1,0 @@
-
-body{font-family:-apple-system,sans-serif;background:#f4f4f4;margin:0;padding:20px;display:flex;justify-content:center}
-.card{background:#fff;padding:22px;border-radius:18px;box-shadow:0 8px 24px rgba(0,0,0,.12);width:min(430px,92vw);text-align:center}
-.row{display:flex;gap:8px;justify-content:center}
-button{padding:10px 14px;border:0;border-radius:10px}
-#value{font-size:64px;font-weight:700;margin:18px}
-#track{position:relative;height:10px;background:#ddd;border-radius:999px;margin:50px 8px;touch-action:none}
-#fill{position:absolute;height:100%;background:#ec4d98;border-radius:999px}
-#thumb{position:absolute;width:28px;height:28px;border-radius:50%;background:#ec4d98;top:50%;transform:translate(-50%,-50%);box-shadow:0 4px 10px rgba(0,0,0,.2)}
